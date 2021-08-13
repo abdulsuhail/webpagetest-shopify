@@ -16,7 +16,8 @@ jobs:
         run: sudo gem install shopify-cli
 
       - name: Login to store
-        run: shopify login --store=https://webpagetest-app.myshopify.com/
+        run: shopify login --store webpagetest-app.myshopify.com
+        
       - name: Serve Shopify Theme
         run: shopify theme serve
 
