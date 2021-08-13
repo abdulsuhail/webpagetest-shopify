@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v1
 
       - name: Install Shopify CLI
-        run: gem install shopify-cli
+        run: sudo gem install shopify-cli
 
       - name: Run Build
         run: npm run build
