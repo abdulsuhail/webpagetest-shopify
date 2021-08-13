@@ -15,14 +15,15 @@ jobs:
       - name: Install Shopify CLI
         run: sudo gem install shopify-cli
 
-      - name: Run Build
-        run: npm run build
+      - name: Serve Shopify Theme
+        run: shopify theme serve
 
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
-          with_ngrok: true
           apiKey: ${{ secrets.WPT_API_KEY }}
+          urls: |
+            https://google.com/
           uses: WPO-Foundation/webpagetest-github-action@main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
