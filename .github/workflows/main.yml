@@ -12,30 +12,17 @@ jobs:
       - name: Node Setup
         uses: actions/setup-node@v1
 
-      - name: Install Project Dependencies
-        run: npm install
-
-      - name: Install pm2
-        run: npm install pm2@latest -g
-
+      - name: Install Shopify CLI
+        run: gem install shopify-cli
 
       - name: Run Build
         run: npm run build
 
-      - name: Start App
-        run: pm2 start app.js 
-        
-      - name: Download ngrok
-        run: npm install ngrok -g
-
-      - name: Start ngrok in background
-        run: source start-ngrok.sh 9000
-      
       - name: WebPageTest
         uses: abdulsuhail/web-test@master
         with:
           with_ngrok: true
           apiKey: ${{ secrets.WPT_API_KEY }}
-          label: 'GitHub Action Test'
+          uses: WPO-Foundation/webpagetest-github-action@main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           wptOptions: '/.github/workflows/wpt-options.json'
