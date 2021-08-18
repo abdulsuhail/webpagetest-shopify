@@ -12,12 +12,6 @@ jobs:
       - name: Node Setup
         uses: actions/setup-node@v1
 
-      - name: Lighthouse Check
-        run: npm install && npm install -g @lhci/cli@0.8.x
-        
-      - run: npm run build
-      - run: lhci autorun
-
       - name: Install Shopify CLI
         run: sudo gem install shopify-cli
 
