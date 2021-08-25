@@ -1,32 +1,16 @@
-name: Web Page Test
-on: [pull_request]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: WebPageTest Action
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: Node Setup
-        uses: actions/setup-node@v1
-
-      - name: Install Shopify CLI
-        run: sudo gem install shopify-cli
-
-      # - name: Login to store
-      #   run: sudo shopify login --store webpagetest-app.myshopify.com
-
-      - name: Serve Shopify Theme
-        run: shopify theme serve
-
-      - name: WebPageTest
-        uses: abdulsuhail/web-test@master
+name: Shopify Lighthouse CI
+on: [push]
+  jobs:
+    lhci:
+      name: Lighthouse
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Lighthouse
+        uses: shopify/lighthouse-ci-action@1.0
         with:
-          apiKey: ${{ secrets.WPT_API_KEY }}
-          urls: |
-            https://google.com/
-          uses: WPO-Foundation/webpagetest-github-action@main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          wptOptions: '/.github/workflows/wpt-options.json'
+          app_id: ${{ secrets.SHOP_APP_ID }}
+          app_password: ${{ secrets.SHOP_APP_PASSWORD }}
+          store: ${{ secrets.SHOP_STORE }}
+          password: ${{ secrets.SHOP_PASSWORD }}
+          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
