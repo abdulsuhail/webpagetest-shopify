@@ -7,7 +7,7 @@ jobs:
       steps:
       - uses: actions/checkout@v2
       - name: Lighthouse
-        uses: abdulsuhail/lighthouse-ci-action@1.0
+        uses: abdulsuhail/lighthouse-ci-action
         with:
           app_id: ${{ secrets.SHOP_APP_ID }}
           app_password: ${{ secrets.SHOP_APP_PASSWORD }}
