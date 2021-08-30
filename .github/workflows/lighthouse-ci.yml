@@ -14,3 +14,4 @@ jobs:
           store: "webpagetest-app.myshopify.com"
           password:  "frawsk"
           lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          wpt_api_key: ${{secrets.WPT_API_KEY}}
