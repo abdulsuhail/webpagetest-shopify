@@ -6,6 +6,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v2
+      
+      - name: Download WebPageTest
+      - run: npm install webpagetest -g
+      
       - name: Lighthouse
         uses: abdulsuhail/lighthouse-ci-action@main
         with:
