@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Download WebPageTest
-      - run: npm install webpagetest -g
+        run: npm install webpagetest -g
       
       - name: Lighthouse
         uses: abdulsuhail/lighthouse-ci-action@main
