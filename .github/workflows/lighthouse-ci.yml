@@ -9,8 +9,8 @@ jobs:
       - name: Lighthouse
         uses: abdulsuhail/lighthouse-ci-action@main
         with:
-          app_id: ${{ secrets.SHOP_APP_ID }}
-          app_password: ${{ secrets.SHOP_APP_PASSWORD }}
+          app_id: "832ad0986accbfddcbb50c4f1132cf43"
+          app_password: "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"
           store: "webpagetest-app.myshopify.com"
           password:  "frawsk"
           lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
