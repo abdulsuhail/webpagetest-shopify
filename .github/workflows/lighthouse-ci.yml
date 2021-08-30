@@ -9,7 +9,7 @@ jobs:
       - name: Lighthouse
         uses: abdulsuhail/lighthouse-ci-action@main
         with:
-          app_id: ${{ secrets.SHOP_APP_ID }}
+          app_id: "832ad0986accbfddcbb50c4f1132cf43"
           app_password: "frawsk"
           store: "webpagetest-app.myshopify.com"
           password:  ${{ secrets.SHOP_PASSWORD }}
